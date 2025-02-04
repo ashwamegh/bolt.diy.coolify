@@ -3,6 +3,7 @@ FROM node:20.18.0
 WORKDIR /app
 
 # Instalar pnpm e wrangler
+RUN corepack prepare pnpm@10.0.0 --activate
 RUN corepack enable pnpm && \
     npm install -g wrangler
 
