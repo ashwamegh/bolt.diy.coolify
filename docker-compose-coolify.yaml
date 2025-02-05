@@ -65,7 +65,7 @@ services:
   app-prebuild:
     image: ghcr.io/stackblitz-labs/bolt.diy:latest 
     ports:
-      - "5173:5173"
+      - "3000:5173"
     environment:
       - NODE_ENV=production
       - COMPOSE_PROFILES=production
@@ -77,5 +77,6 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
     command: pnpm run dockerstart
+    restart: unless-stopped
     profiles:
       - prebuilt
